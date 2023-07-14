@@ -36,6 +36,7 @@ function App() {
                 { id: prevItems.length, text: value },
               ]);
               setIsEditMode(false);
+              setValue('');
             }}
           >
             Create
