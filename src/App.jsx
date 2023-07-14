@@ -47,7 +47,7 @@ function App() {
             setIsEditMode(true);
           }}
         >
-          Add new
+          Add new TODO
         </Button>
       )}
     </div>
