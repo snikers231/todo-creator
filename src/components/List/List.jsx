@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 
+import Button from "../Button";
+
 import styles from "./List.module.css";
-import Button from "../Button/Button";
 
 const List = ({ items, handleDelete }) => {
   console.log(items);
