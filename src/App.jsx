@@ -13,7 +13,14 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <List items={items} />
+      <List
+        items={items}
+        handleDelete={(deletedId) => {
+          setItems((prevItems) =>
+            prevItems.filter((item) => item.id !== deletedId)
+          );
+        }}
+      />
       {isEditMode ? (
         <div>
           <Input
@@ -24,7 +31,10 @@ function App() {
           />
           <Button
             onClick={() => {
-              setItems((prevItems) => [...prevItems, {text: value}]);
+              setItems((prevItems) => [
+                ...prevItems,
+                { id: prevItems.length, text: value },
+              ]);
               setIsEditMode(false);
             }}
           >

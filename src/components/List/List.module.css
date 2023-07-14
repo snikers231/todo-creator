@@ -9,5 +9,10 @@
   color: white;
   background-color: black;
   border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
 }
 
+.delete-button {
+  background-color: red;
+}
