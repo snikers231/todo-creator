@@ -1,0 +1,27 @@
+/* .btnDelet {
+    visibility: hidden;
+    position: absolute;
+    top: 10px;
+    right: 80px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-right: 54px;
+    border-radius: 3px;
+    border: none;
+    width: 100px;
+    height: 23px;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: rgb(204, 0, 255);
+    color: white;
+    cursor: pointer;
+  }
+  
+  .btnDelet:hover {
+    background-color: rgba(204, 0, 255, 0.8);
+    color: #000;
+  }
+  
+  .btnDeletVisible {
+    visibility: visible;
+  } */
