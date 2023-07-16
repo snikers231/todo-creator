@@ -11,6 +11,15 @@
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
+}
+
+.list-item-strike {
+  text-decoration: line-through solid red;
+}
+
+.text-todo {
+  text-decoration: none;
 }
 
 .delete-button {

@@ -1,6 +1,29 @@
 .app {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 800px;
   margin: 50px auto;
+}
+
+.start-text {
+  margin: 0 auto;
+  margin: 27px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 14px;
+  color: white;
+}
+
+.add-style-btn {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.list-item-strike {
+  text-decoration: line-through solid red;
+}
+
+.text-todo {
+  text-decoration: none;
 }
