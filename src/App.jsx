@@ -16,6 +16,12 @@ function App() {
     setItems([]);
   };
 
+  const onDelete = (deletedId) => {
+    setItems((prevItems) =>
+      prevItems.filter((item) => item.id !== deletedId)
+    );
+  }
+
   const handleAddClick = () => {
     setIsEditMode(true);
   };
@@ -54,11 +60,7 @@ function App() {
       <List
         items={items}
         onComplete={handleComplete}
-        onDelete={(deletedId) => {
-          setItems((prevItems) =>
-            prevItems.filter((item) => item.id !== deletedId)
-          );
-        }}
+        onDelete={onDelete}
       />
 
       {isEditMode ? (
