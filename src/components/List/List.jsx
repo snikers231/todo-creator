@@ -1,26 +1,21 @@
 import PropTypes from "prop-types";
 
-import Button from "../Button";
+import TodoCard from "../TodoCard";
 
 import styles from "./List.module.css";
 
-const List = ({ items, handleDelete }) => {
-  console.log(items);
-
+const List = ({ items, onDelete, onComplete }) => {
   return (
     <div className={styles.list}>
       {items.map((item) => (
-        <div className={styles["list-item"]} key={item.id}>
-          <span>{item.text}</span>
-          <Button
-            className={styles["delete-button"]}
-            onClick={() => {
-              handleDelete(item.id);
-            }}
-          >
-            X
-          </Button>
-        </div>
+        <TodoCard
+          key={item.id}
+          onDelete={onDelete}
+          onComplete={onComplete}
+          text={item.text}
+          id={item.id}
+          status={item.status}
+        />
       ))}
     </div>
   );
@@ -28,7 +23,8 @@ const List = ({ items, handleDelete }) => {
 
 List.propTypes = {
   items: PropTypes.array,
-  handleDelete: PropTypes.func,
+  onDelete: PropTypes.func,
+  onComplete: PropTypes.func,
 };
 
 export default List;

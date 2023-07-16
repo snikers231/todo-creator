@@ -3,3 +3,7 @@
   line-height: 18px;
   color: darkblue;
 }
+
+.input-element {
+  width: 100%;
+}

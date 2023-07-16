@@ -4,3 +4,23 @@
   width: 800px;
   margin: 50px auto;
 }
+
+.clear-all-button {
+  margin-top: 8px;
+  background-color: darkred;
+}
+
+.add-button {
+  background-color: darkblue;
+}
+
+.create-button {
+  margin-left: 16px;
+  display: inline-flex;
+}
+
+.task-text-input {
+  display: inline-flex;
+  width: 100%;
+  max-width: 300px;
+}

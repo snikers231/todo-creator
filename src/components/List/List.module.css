@@ -1,18 +1,5 @@
 .list {
   display: flex;
   flex-direction: column;
-}
-
-.list-item {
-  padding: 16px 8px;
-  margin: 8px 0;
-  color: white;
-  background-color: black;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.delete-button {
-  background-color: red;
+  margin-bottom: 16px;
 }

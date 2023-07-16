@@ -5,7 +5,7 @@ import styles from "./Input.module.css";
 const Input = ({ label, onChange, value, className, ...rest }) => (
   <label className={className} {...rest}>
     {label && <span className={styles["input-label"]}>{label}</span>}
-    <input onChange={onChange} value={value} />
+    <input className={styles["input-element"]} onChange={onChange} value={value} />
   </label>
 );
 
