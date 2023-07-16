@@ -3,7 +3,6 @@ import { useState } from "react";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import List from "./components/List";
-import BtnDeleteTodos from "./components/BtnDeleteTodos";
 import CountTodo from "./components/CountTodo";
 
 import styles from "./App.module.css";
@@ -12,44 +11,36 @@ function App() {
   const [items, setItems] = useState([]);
   const [isEditMode, setIsEditMode] = useState(false);
   const [value, setValue] = useState("");
-  const [count, setCount] = useState(0);
+
+  let startText = "Nothing created yet";
 
   return (
     <>
-      {items.length === 0 ? (
-        <CountTodo
-          text='Nothing created yet'
-          className={styles.startText}
-        />) : (
-        <CountTodo
-          count={count}
-          text=' todo'
-          className={styles.startText}
-        />
-      )
-      }
-      {items.length >= 2 &&
-        <div>
-          <BtnDeleteTodos
-            className={styles.btnDelet}
-            onClick={() => {
-              setItems([]);
-              setCount(0);
-            }}
-          />
-        </div>
-      }
-
       <div className={styles.app}>
+        {items.length === 0 ? (
+          <CountTodo
+            text={startText}
+            className={styles["start-text"]}
+          />) : (
+          <CountTodo
+            text={`${items.length} todo`}
+            className={styles["start-text"]}
+          />
+        )
+        }
         <List
           items={items}
           handleDelete={(deletedId) => {
             setItems((prevItems) =>
               prevItems.filter((item) => item.id !== deletedId)
             );
-            setCount(count - 1);
+          }}
+
+          onTaskCompletion={() => {
+            items.filter((item) => item.status = "done")
           }}
         />
+
         {isEditMode ? (
           <div>
             <Input
@@ -59,31 +50,42 @@ function App() {
               }}
             />
             <Button
-              className={styles.addStyleBtn}
+              className={styles["add-style-btn"]}
               onClick={() => {
                 setItems((prevItems) => [
                   ...prevItems,
-                  { id: prevItems.length, text: value },
+                  { id: prevItems.length, text: value, status: "todo" },
                 ]);
                 setIsEditMode(false);
                 setValue('');
-                setCount(count + 1);
               }}
             >
               Create
             </Button>
           </div>
         ) : (
-          <Button
-            className={styles.addStyleBtn}
-            onClick={() => {
-              setIsEditMode(true);
-            }}
-          >
-            Add new TODO
-          </Button>
-        )}
-      </div >
+          <>
+            <Button
+              className={styles["add-style-btn"]}
+              onClick={() => {
+                setIsEditMode(true);
+              }}
+            >
+              Add new Todo
+            </Button>
+
+            <Button
+              className={styles["add-style-btn"]}
+              onClick={() => {
+                setItems([]);
+              }}
+            >
+              Delete all Todo
+            </Button>
+          </>
+        )
+        }
+      </div>
     </>
   );
 }

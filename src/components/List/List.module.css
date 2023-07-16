@@ -7,7 +7,6 @@
   padding: 16px 8px;
   margin: 8px 0;
   color: white;
-  text-decoration: none;
   background-color: black;
   border-radius: 4px;
   display: flex;
@@ -19,11 +18,10 @@
   text-decoration: line-through solid red;
 }
 
-.delete-button {
-  background-color: rgb(204, 0, 255);
-  cursor: pointer;
+.text-todo {
+  text-decoration: none;
 }
 
-.textTodo {
-  text-decoration: none;
+.delete-button {
+  background-color: red;
 }

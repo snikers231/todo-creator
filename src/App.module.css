@@ -6,45 +6,24 @@
   margin: 50px auto;
 }
 
-.btnDelet {
-  position: absolute;
-  top: 10px;
-  right: 80px;
+.start-text {
   margin: 0 auto;
-  margin-top: 10px;
-  margin-right: 54px;
-  border-radius: 3px;
-  border: none;
-  width: 100px;
-  height: 23px;
-  font-size: 12px;
-  line-height: 14px;
-  background-color: rgb(204, 0, 255);
-  color: white;
-  cursor: pointer;
-}
-
-.btnDelet:hover {
-  background-color: rgba(204, 0, 255, 0.8);
-  color: #000;
-}
-
-.startText {
-  margin: 0 auto;
-  margin-top: 27px;
+  margin: 27px;
   text-align: center;
   font-size: 12px;
   line-height: 14px;
   color: white;
 }
 
-.addStyleBtn {
-  /* border-radius: 3px;
-  border: none; */
+.add-style-btn {
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
-/* .addStyleBtn:hover {
-  background-color: rgba(204, 0, 255, 0.8);
-  transition: 0.5s ease-in-out;
-} */
+.list-item-strike {
+  text-decoration: line-through solid red;
+}
+
+.text-todo {
+  text-decoration: none;
+}

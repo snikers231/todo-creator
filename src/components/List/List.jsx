@@ -1,10 +1,8 @@
 import PropTypes from "prop-types";
-
 import Button from "../Button";
-
 import styles from "./List.module.css";
 
-const List = ({ items, handleDelete, handleCrossOut }) => {
+const List = ({ items, handleDelete, onTaskCompletion }) => {
   console.log(items);
 
   return (
@@ -13,13 +11,11 @@ const List = ({ items, handleDelete, handleCrossOut }) => {
         <div
           className={styles["list-item"]}
           key={item.id}
-          value={item.innerText}
           onClick={() => {
-            handleCrossOut(item.innerText)
+            onTaskCompletion();
           }}
         >
-
-          <span className={handleCrossOut ? styles["list-item-strike"] : styles["textTodo"]}>
+          <span className={onTaskCompletion(item.id)}>
             {item.text}
           </span>
           <Button
@@ -39,7 +35,7 @@ const List = ({ items, handleDelete, handleCrossOut }) => {
 List.propTypes = {
   items: PropTypes.array,
   handleDelete: PropTypes.func,
-  handleCrossOut: PropTypes.func
+  onTaskCompletion: PropTypes.func
 };
 
 export default List;

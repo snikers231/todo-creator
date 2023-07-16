@@ -11,7 +11,7 @@
 //             key={item}
 //             onClick={onClick}>
 //             <span
-//                 className={onClick ? styles["list-item-strike"] : styles["textTodo"]}>
+//                 className={onClick ? styles["list-item-strike"] : styles["text-todo"]}>
 //                 {item.text}
 //             </span>
 
