@@ -1,4 +1,4 @@
-.list {
+/* .list {
   display: flex;
   flex-direction: column;
 }
@@ -7,7 +7,7 @@
   padding: 16px 8px;
   margin: 8px 0;
   color: white;
-  background-color: black;
+  background-color: grey;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
@@ -15,6 +15,14 @@
 }
 
 .list-item-strike {
+  padding: 16px 8px;
+  margin: 8px 0;
+  color: white;
+  background-color: grey;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
   text-decoration: line-through solid red;
 }
 
@@ -24,4 +32,4 @@
 
 .delete-button {
   background-color: red;
-}
+} */

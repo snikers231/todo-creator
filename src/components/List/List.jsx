@@ -1,41 +1,43 @@
+import React from "react";
 import PropTypes from "prop-types";
-import Button from "../Button";
-import styles from "./List.module.css";
+import ItemTodo from "../ItemTodo/ItemTodo.jsx";
 
-const List = ({ items, handleDelete, onTaskCompletion }) => {
-  console.log(items);
+// import styles from "./List.module.css";
+import "../../index.css";
+export default function List({
+  items,
+  onCreateTask,
+  onDeleteTask,
+  onTaskStatus,
+  onEditTask,
+}) {
 
   return (
-    <div className={styles.list}>
+    <div className={"list"}>
       {items.map((item) => (
-        <div
-          className={styles["list-item"]}
+        <ItemTodo
+          id={item.id}
           key={item.id}
-          onClick={() => {
-            onTaskCompletion();
-          }}
-        >
-          <span className={onTaskCompletion(item.id)}>
-            {item.text}
-          </span>
-          <Button
-            className={styles["delete-button"]}
-            onClick={() => {
-              handleDelete(item.id);
-            }}
-          >
-            X
-          </Button>
-        </div>
+          text={item.text}
+          status={item.status}
+          time={item.time}
+          onCreateTask={onCreateTask}
+          onDeleteTask={onDeleteTask}
+          onTaskStatus={onTaskStatus}
+          onEditTask={onEditTask}
+        />
       ))}
     </div>
   );
-};
+}
+
 
 List.propTypes = {
   items: PropTypes.array,
-  handleDelete: PropTypes.func,
-  onTaskCompletion: PropTypes.func
+  onCreateTask: PropTypes.func,
+  onDeleteTask: PropTypes.func,
+  onTaskStatus: PropTypes.func,
+  onEditTask: PropTypes.func
 };
 
-export default List;
+// 37-40стр тип - функция?

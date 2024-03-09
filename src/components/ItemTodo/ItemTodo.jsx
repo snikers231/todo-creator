@@ -1,33 +1,85 @@
-// import PropTypes from "prop-types";
+import React from "react";
+import { useState } from "react";
+import Button from "../Button/Button.jsx";
+import Input from "../Input/Input.jsx";
 
-// import Button from "../Button";
+import { FaRegTrashCan } from "react-icons/fa6";
 
-// import styles from "../List/List.module.css";
+import "../../index.css";
 
-// const ItemTodo = ({ item, onClick }) => {
-//     return (
-//         <div
-//             className={styles["list-item"]}
-//             key={item}
-//             onClick={onClick}>
-//             <span
-//                 className={onClick ? styles["list-item-strike"] : styles["text-todo"]}>
-//                 {item.text}
-//             </span>
+export default function ItemTodo({
+  id,
+  text,
+  status,
+  onDeleteTask,
+  onTaskStatus,
+  onEditTask,
+}) {
+  const [isEditText, setIsEditText] = useState(false);
+  const [changeValue, setChangeValue] = useState(text);
 
-//             <Button
-//                 className={styles["delete-button"]}
-//                 onClick={onClick}
-//             >
-//                 X
-//             </Button>
-//         </div>
-//     );
-// }
+  function handleChangeBtn() {
+    setChangeValue(changeValue);
+  }
 
-// ItemTodo.propTypes = {
-//     item: PropTypes.array,
-//     onClick: PropTypes.func
-// };
+  function handleDeletClick() {
+    onDeleteTask(id);
+  }
 
-// export default ItemTodo;
+  function handleTaskStatusClick() {
+    onTaskStatus(id);
+  }
+
+  function handleEditTextTaskClick() {
+    setIsEditText(true);
+  }
+
+  function handleSaveTextTaskClick() {
+    setIsEditText(false);
+    setChangeValue(changeValue);
+    onEditTask(id, changeValue);
+  }
+
+  return (
+    <div className={"list-item"}>
+      <button
+        className={status === "todo" ? "list-item-btn" : "list-item-btn strike"}
+        onClick={!isEditText ? handleTaskStatusClick : null}
+        key={id}
+      >
+        {!isEditText ? (
+          <span
+            onChange={(e) => {
+              setIsEditText(false);
+              setChangeValue(e.target.value);
+            }}
+          >
+            {!isEditText ? text : changeValue}
+          </span>
+        ) : (
+          <Input
+            className={"input-label-edit"}
+            value={changeValue}
+            onChange={(e) => {
+              setIsEditText(true);
+              setChangeValue(e.target.value);
+            }}
+          />
+        )}
+      </button>
+      <Button
+        className={"edit-button button"}
+        onClick={
+          !isEditText ? handleEditTextTaskClick : handleSaveTextTaskClick
+        }
+        onChange={handleChangeBtn}
+      >
+        {!isEditText ? "Edit" : "Save"}
+      </Button>
+
+      <Button className={"delete-button"} onClick={handleDeletClick}>
+        <FaRegTrashCan />
+      </Button>
+    </div>
+  );
+}
